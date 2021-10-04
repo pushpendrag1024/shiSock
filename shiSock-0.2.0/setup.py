@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 DESCRIPTION = 'High level server and client development with E2E encryption.'
 LONG_DESCRIPTION = 'A package that allows to code a server which can handle multiple connections at a time with E2E encryption. It also allows two client to talk together with the help of server'
 
