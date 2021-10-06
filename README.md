@@ -74,5 +74,3 @@ c.SEND(
 ```
 
 Thank you!
-
----
