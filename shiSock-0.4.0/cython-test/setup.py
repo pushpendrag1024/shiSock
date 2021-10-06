@@ -1,3 +1,6 @@
+# this file helps use to convert the python code to c code
+# C code is much faster in execution but hard to understand
+
 from setuptools import Extension, setup
 from Cython.Build import cythonize
 
