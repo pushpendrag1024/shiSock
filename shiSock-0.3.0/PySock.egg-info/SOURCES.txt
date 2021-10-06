@@ -1,0 +1,12 @@
+README.md
+setup.py
+PySock/Sclient.py
+PySock/Sserver.py
+PySock/__init__.py
+PySock/client.py
+PySock/server.py
+PySock.egg-info/PKG-INFO
+PySock.egg-info/SOURCES.txt
+PySock.egg-info/dependency_links.txt
+PySock.egg-info/requires.txt
+PySock.egg-info/top_level.txt
