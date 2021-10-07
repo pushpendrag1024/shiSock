@@ -112,3 +112,6 @@
 
 # # Pyre type checker
 # .pyre/
+
+test_redis/
+cython-test/
