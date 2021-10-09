@@ -115,7 +115,7 @@ while True:
 
 ### Result after running server.py, clientOne.py and clientTwo.py
 
-![Markdown logo](resource/PySock-test.png)
+![Markdown logo](test_screenshots\shiSock-test.png)
 
 ---
 ---
