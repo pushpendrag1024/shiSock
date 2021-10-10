@@ -21,18 +21,22 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# This file include all the internal import and make them availble for expernal access.
+# This file handle the command line interface of shiSock.
+# Mainly this file helps us when we setup the epoll server for linux.
 
 import sys
+from .eserver import SetupIPC
 
-from .server import server
-# from .eserver import SetupIPC  # deprecated
+def main():
 
-from .client import client  # not done**
-from .secureClient import secureClient  # not done**
+    args = sys.argv[::]
 
-p_name = sys.platform
+    if len(args) > 2:
+        print("Too many value to unpack") 
+        sys.exit()
+    if len(args) == 2:
+        if args[1] == "--setupIPC":
+            SetupIPC()
 
-if p_name == "linux":
-    from .eserver import eserver
-    from .esecureServer import esecureServer  # not done**
+if __name__ == "__main__":
+    main()

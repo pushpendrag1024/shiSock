@@ -1,0 +1,16 @@
+        TYPE - 1
+
+    SERVER          CLIENT
+
+
+    esecureServer<   secureClient<
+    secureServer<
+
+        TYPE - 2
+
+    SERVER          CLIENT
+
+    server<          client<
+    eserver<         
+
+
