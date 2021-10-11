@@ -7,31 +7,10 @@ import multiprocessing
 
 class serverWindows():
 
-    def __init__(self,secure = False, DSP_enable=False, file = None, debug = False, MTCL : bool = True, MPCL : bool = None):
+    def __init__(self, address : str = "localhost", port : int = 1022, listeners : int = 10, debug : bool = False):
 
         self.__debug = debug
-
-        if MPCL and MTCL:
-            raise ValueError("both 'MPCL' abd 'MTCL' should not be set to True")
-
-        elif not MPCL and not MTCL:
-            raise ValueError("both 'MPCL' abd 'MTCL' should not be set to False")
-
-        else:
-            self.__MPCL = MPCL
-            self.__MTCL = MTCL
-
-        if secure:
-            if not file:
-                raise TypeError("__init__() missing 1 required positional argument: 'file'")
-            else:
-                self.__secure = secure
-                self.__file_location = file
-
-        else:
-            self.__secure = secure
-
-        self.__READABLE = []
+        self.counter = 99999999
         self.__WRITABLE = []
         self.__INPUTS = []
         self.__OUTPUTS = []
@@ -43,15 +22,17 @@ class serverWindows():
         self.__BYPASS_MSG  = []
         self.__SENDER_QUEUE = []
         self.conClients = []
+
+        self._SERVER(Adress = address, Port = port, Listeners = listeners)
         
-    def SERVER(self, address : str = None, port : int = None, listeners : int = None):
+    def _SERVER(self, Address : str = None, Port : int = None, Listeners : int = None):
         
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.sock.setblocking(False)
 
-        self.sock.bind((address, port))
-        self.sock.listen(listeners)
+        self.sock.bind((Address, Port))
+        self.sock.listen(Listeners)
 
         if self.__debug:
             print("[SERVER IS ACTIVATED | LISTENING]")
@@ -83,34 +64,23 @@ class serverWindows():
             )
             )
 
-        if self.__MTCL:
-            callback_loop_thread = threading.Thread(
-                target=self.__callback_loop,
-                args = (
-                    self.__CALLBACK_LOOP,
-                )
+        callback_loop_thread = threading.Thread(
+            target=self.__callback_loop,
+            args = (
+                self.__CALLBACK_LOOP,
             )
-        if self.__MTCL:
-            callback_loop_process = multiprocessing.Process(
-                target=self.__callback_loop,
-                args = (
-                    self.__CALLBACK_LOOP,
-                )
-            )
+        )
 
         server_thread.daemon = True
         receiver_thread.daemon = True
         sender_thread.daemon = True
+        callback_loop_thread.daemon = True
 
         server_thread.start()
         receiver_thread.start()
         sender_thread.start()
-        if self.__MTCL:
-            callback_loop_thread.daemon = True
-            callback_loop_thread.start()
-        else:
-            callback_loop_thread.daemon = True
-            callback_loop_process.start()
+        callback_loop_thread.start()
+        
 
     def __server(self):
         data_recv_len = []
