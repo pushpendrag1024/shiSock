@@ -1,3 +1,4 @@
+#unstable
 import select
 import socket
 import base64
@@ -8,6 +9,8 @@ import threading
 class __server():
 
     def __init__(self, address : str = "localhost", port : int = 1022, listeners : int = 10, debug : bool = False) -> None:
+        '''This server is just for prototype and this should not be used in production.
+        We are adding some new features in this file thats why please do not use in right now.'''
 
         self.debug = debug
 
