@@ -14,7 +14,7 @@ The encryption is not just limited to client-server communication but it also en
 
 Before creating secure version of server make sure you have a .yaml file as it is required
 
-server.py
+<b>server.py</b>
 
 ```python
 from PySock import Sserver
@@ -50,7 +50,7 @@ while True:
 
 Before creating server make sure you have a .yaml file as it is required
 
-clientOne.py
+<b>clientOne.py</b>
 
 ```python
 from PySock import Sclient
@@ -80,7 +80,7 @@ while True:
             count += 1
 ```
 
-clientTwo.py
+<b>clientTwo.py</b>
 
 ```python
 from PySock import Sclient
@@ -124,7 +124,7 @@ while True:
 
 ><h4 style = "color : #7264a3">Sample Server</h4>
 
-server.py
+<b>server.py</b>
 
 ```python
 from PySock import server
@@ -149,7 +149,7 @@ while True:
 
 ><h4 style = "color : #7264a3">Sample Clients</h4>
 
-clientOne.py
+<b>clientOne.py</b>
 
 ```python
 from PySock import client
@@ -174,7 +174,7 @@ while True:
 
 ```
 
-clientTwo.py
+<b>clientTwo.py</b>
 
 ```python
 from PySock import client
@@ -197,4 +197,4 @@ while True:
 There is no docs for this library but i'm working on docs, hope it will uploaded soon.
 
 
-Thanks for visiting 
+<strong>Thanks for visiting</strong> 
