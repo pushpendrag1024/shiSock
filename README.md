@@ -196,5 +196,6 @@ while True:
 ```
 # There is no docs for this library but i'm working on docs, hope it will uploaded soon.
 
+### contributions are welcome😇
 
 <strong>Thanks for visiting</strong> 
